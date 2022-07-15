@@ -78,6 +78,7 @@ if (option == 'Mask RCNN') and (uploaded_file is not None):
     
     # Load GROUND TRUTH
     num_of_ins_in_gt = str(len(sartorius_df[sartorius_df['id'] == file_name[:-4]]))
+    cell_type = sartorius_df.loc[sartorius_df['id'] == file_name[:-4], 'cell_type'].values[0]
     mask_gt = rle_decode_by_image_id(file_name[:-4])
     colors = random_colors(mask_gt.shape[-1])
     gt = np.stack([img, img, img], axis=2)
@@ -89,11 +90,12 @@ if (option == 'Mask RCNN') and (uploaded_file is not None):
     figsize = (10, 10)
     with cl_1:
         st.subheader('Input')
-        st.write('Số lượng tế bào trong ảnh: **{}**'.format(num_of_ins_in_gt))
+        st.write('Số lượng tế bào trong ảnh: **{} tế bào {}**'.format(num_of_ins_in_gt, cell_type))
         fig = plt.figure(figsize=(5, 5))
         plt.imshow(img, cmap='gray')
         plt.axis('off')
         st.pyplot(fig)
+    st.header('So sánh Ground Truth và Output')
     cl_2, cr_2 = st.columns(2)
     if st.button('Khoành vùng tế bào'):
         detect = None
@@ -112,7 +114,11 @@ if (option == 'Mask RCNN') and (uploaded_file is not None):
             #st.image(merged)
             
             num_ins_detect = str(result['masks'].shape[-1])
-            st.write('Số lượng tế bào được tìm thấy bởi Mask RCNN: **{}**'.format(num_ins_detect))
+
+            ins_count, ins_dict = mrcnn_utils.count_num_ins_detect(result['class_ids'])
+            mrcnn_string_to_print = mrcnn_utils.print_num_ins_detect(ins_count, ins_dict)
+
+            st.write('Số lượng tế bào được tìm thấy bởi Mask RCNN: **{}**'.format(mrcnn_string_to_print))
         
             fig, ax = plt.subplots(figsize=figsize)
             mask = unpad_image(result['masks'], (HEIGHT_TARGET, WIDTH_TARGET),
@@ -125,16 +131,17 @@ if (option == 'Mask RCNN') and (uploaded_file is not None):
                     alpha=0.2, remove_pad=True, colors=colors)
             st.pyplot(fig)
     
-        st.header('So sánh Ground Truth và Output')
         with cl_2:
-            st.write('Số lượng tế bào trong ảnh: **{}**'.format(num_of_ins_in_gt))
+            st.write('Số lượng tế bào trong ảnh: **{} tế bào {}**'.format(num_of_ins_in_gt, cell_type))
             fig = plt.figure(figsize=(5, 5))
             plt.imshow(gt)
             plt.axis('off')
             st.pyplot(fig)
         with cr_2:
+            ins_count, ins_dict = mrcnn_utils.count_num_ins_detect(detect['class_ids'])
+            mrcnn_string_to_print = mrcnn_utils.print_num_ins_detect(ins_count, ins_dict)
             st.write('Số lượng tế bào được tìm thấy bởi Mask RCNN: **{}**'.
-                    format(detect['masks'].shape[-1]))
+                    format(mrcnn_string_to_print))
             fig, ax = plt.subplots(figsize=figsize)
             mask = unpad_image(detect['masks'], (HEIGHT_TARGET, WIDTH_TARGET),
                      (HEIGHT, WIDTH))
@@ -155,6 +162,7 @@ if (option == 'Cellpose') and (uploaded_file is not None):
     img = imageio.imread(file_path)
     
     # Load GROUND TRUTH
+    cell_type = sartorius_df.loc[sartorius_df['id'] == file_name[:-4], 'cell_type'].values[0]
     num_of_ins_in_gt = str(len(sartorius_df[sartorius_df['id'] == file_name[:-4]]))
     mask_gt = rle_decode_by_image_id(file_name[:-4])
     colors = random_colors(mask_gt.shape[-1])
@@ -167,9 +175,10 @@ if (option == 'Cellpose') and (uploaded_file is not None):
     figsize = (10, 10)
     with cl_1:
         st.subheader('Input')
-        st.write('Số lượng tế bào trong ảnh: **{}**'.format(num_of_ins_in_gt))
+        st.write('Số lượng tế bào trong ảnh: **{} tế bào {}**'.format(num_of_ins_in_gt, cell_type))
         st.image(img)
  
+    st.header('So sánh Ground Truth và Output')
     cl_2, cr_2 = st.columns(2)
     if st.button('Khoành vùng tế bào'):
         detect = None
@@ -193,9 +202,8 @@ if (option == 'Cellpose') and (uploaded_file is not None):
             overlay = mask_overlay(img, mask)
             st.image(overlay)
 
-        st.header('So sánh Ground Truth và Output')
         with cl_2:
-            st.write('Số lượng tế bào trong ảnh: **{}**'.format(num_of_ins_in_gt))
+            st.write('Số lượng tế bào trong ảnh: **{} tế bào {}**'.format(num_of_ins_in_gt, cell_type))
             st.image(gt)
         with cr_2:
             st.write('Số lượng tế bào được tìm thấy bởi Cellpose: **{}**'.
@@ -211,6 +219,7 @@ elif (option == 'Cả hai mô hình')and (uploaded_file is not None):
     st.subheader('Input')
     
     # Load GROUND TRUTH
+    cell_type = sartorius_df.loc[sartorius_df['id'] == file_name[:-4], 'cell_type'].values[0]
     num_of_ins_in_gt = str(len(sartorius_df[sartorius_df['id'] == file_name[:-4]]))
     mask_gt = rle_decode_by_image_id(file_name[:-4])
     colors = random_colors(mask_gt.shape[-1])
@@ -220,7 +229,7 @@ elif (option == 'Cả hai mô hình')and (uploaded_file is not None):
         color = colors[i]
         gt = apply_mask(gt, m, color, alpha=0.4)
 
-    st.write('Số lượng tế bào trong ảnh: **{}**'.format(num_of_ins_in_gt))
+    st.write('Số lượng tế bào trong ảnh: **{} tế bào {}**'.format(num_of_ins_in_gt, cell_type))
     st.image(img)
 
     st.header('So sánh Ground Truth và Output')

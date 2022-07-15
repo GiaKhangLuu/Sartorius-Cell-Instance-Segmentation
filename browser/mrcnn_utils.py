@@ -56,4 +56,26 @@ def process_to_visualize_output(img, mask):
     merged = merge_image_and_mask(img, mask)
     
     return merged
-     
+
+def count_num_ins_detect(ins_detect):
+    ins_count = {}
+
+    ins_dict = {1: 'astro', 2: 'cort', 3: 'shsy5y'}
+
+    for ins in ins_detect:
+        # checking whether it is in the dict or not
+        if ins in ins_count:
+            # incerementing the count by 1
+            ins_count[ins] += 1
+        else:
+            # setting the count to 1
+            ins_count[ins] = 1
+
+    return ins_count, ins_dict 
+
+def print_num_ins_detect(ins_count, ins_dict):
+    s = ''
+    for key, value in ins_count.items():
+        s += '{} tế bào {}, '.format(value, ins_dict[key])
+    return s[:-2]
+
