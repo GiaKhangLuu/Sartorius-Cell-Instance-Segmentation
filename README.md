@@ -13,13 +13,15 @@ The dataset is downloaded from: https://www.kaggle.com/competitions/sartorius-ce
 **Models:** 
 1. Mask RCNN
 2. Cellpose
+3. Training Size Model (Cellpose's assistant model)
 
-**Techniques:** 
+**Data:** 
 1. Mosaic
 2. Add extra data for the `SH-SY5Y` cell line from LIVECell dataset which is the predecessor of this dataset
 3. Data Augmentation (Flip left/right, Flip up/down, Crop, Add noise, Rotation
-4. L2 Regularization
-5. Training Size Model (Cellpose's assistant model)
+
+**Loss:**
+1. L2 Regularization
 
 # Repository structure
 
