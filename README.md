@@ -23,22 +23,64 @@ The dataset is downloaded from: https://www.kaggle.com/competitions/sartorius-ce
 
 # Repository structure
 
-`browser`: contains deployment files
+## 📂 Browser folder
+`./browser/` folder stores all demo files which use Mask RCNN or/and Cellpose to detect cells in microscopy image on web.
 
-`models`: contains Mask RCNN and Cellpose packages
+Using command `streamlit run main.py` to start server.
+```
+.
+├── browser
+│   ├── cellpose_utils.py
+│   ├── main.py
+│   ├── mrcnn_utils.py
+│   └── utils.py
+```
 
-`technique`: contains helper package and some test files
+## 📂 Models folder
+Mask RCNN and Cellpose packages are stored in `./models/` folder.
+```
+.
+├── models
+│   ├── Mask_RCNN
+│   ├── cellpose
+```
 
-`train-dir`: contains eda, prepare data, training files
+## 📂 Requirement folder
+`./requirement/cellpose-requirement.txt` contains all packages used by Cellpose and 
+`./requirement/mrcnn-requirement.txt` contains all packages used by Mask RCNN.
+```
+.
+├── requirement
+│   ├── cellpose-requirement.txt
+│   └── mrcnn-requirement.txt
+```
 
-# Visualize output
+## 📂 Technique folder
 
-**Mask RCNN**
+`./technique/` folder stores all files demo of those techniques used in this project
 
-![Mask RCNN's output](https://www.kaggleusercontent.com/kf/99178893/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..l8Wl85z6nzlrqVAayOnxOw.bO0p5vI2qtaQfsKaI8uJS2zSFf6dp_X9nnBAfhRAVQ3CFRHrTuZyaYfTCncHQ9GD45E_u5s5ngwF_3k0n7Iikkcs8iCcSmwCQ_gD7cVywLwSgrteaHgubmdkjxcdaybu49gNEogHaTa1jguVsWtJ72Z3nP75foKrhFoC3XQ_BZTrZ6kRjgmJ6QjNPMq3KisXU8EAG92yKbOGEpVWBejujxbW89aXWBvThmqEquluHD7ziWuPx7JasAZwXZOfnpZKF49NTGcVqTbTuqFZzojh1_8--9WyiwCdo1OjSOSl6cgz_wISxv_nL-FYnF8rf7qu0uhqNtdIvwJsudsYIce6IpPh5on-57TYRKV9yzibKqSpzVnk6QBPMFDEAK-i07z30lHiXL3i4pYiQUaUVJUFWLqayFFZRuFaYrbv8tEqoPTJyqazfhQUV4y9JlCPQYPS_jXzglW90gpW3TQUCxXhfX45wIJg6YhiuICGt4rMxLdZPVCqMiTtd1b72F9pRJ9D2ydi7mqV-ZR7xRGpPNLJtjHJgMsUtB68ek9KIqqwPFPIbzU33tnCetW7f5_QPS9dhmG-957ijKPcgwAQI7ozikPRFVFV7I8H_MzjxD-k-z0EA03OQpvDoYugwuFrOhguQd2NwM8nCjylROt9YKdvd3vLjAtwES5f9DyzKvKrAho.0GZ_GL4_mZ_G1A8RX5sXPQ/__results___files/__results___33_1.png)
+```
+.
+├── technique
+│   ├── augmentation
+│   ├── helper_package
+│   ├── livecell prepare.ipynb
+│   ├── mini mask.ipynb
+│   └── mosaic
+```
 
-**Cellpose**
-![Cellpose's output](https://www.kaggleusercontent.com/kf/99398156/eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..r6186lrIdpkEArAZKMt0iw.68O_B2egyTVQl7X8WFSU0obqJk-DqWNeJ-elL6f8CeAVmGyWHZqfI8JCGs8n8Qr6M3nrGFwTeIQCl4y6FYIfcburApwK16u6OXa-ZRZ49rOTrs87dvle8a-4hpKIQIKBVhSUojtx8Ui-joOMOwse4tH3uJz3DrEePFqfdHeqSOkfrESJxPhnHa7OVyNonKO-LzmX0oxFoTHiCNHcg-Ewltv41ydjTsz0cZRK0-dqeupXoA1rvsR7Hh3DYeqIWTQY-kbBpKR6pZhHUHuuU0W16qfMdvKywpdARoga_0HPLfGp23NOSkmmkUYxffkg0R0TLV5ihf-IGTKpW19cV8x0ecTN5pFsbsou29BZT-mn16SWlR47YT7DCFzv8XJXkfvBVS6plfnD7Hw-bEE--VmY-VS_RGXUa8mZ9RVCV0RdrIpjMYXp2JBNh1sqWyNjwLZgGWAxMzxDwQrP3t1gj7s7JMS-_lU_Wbu5kToS-mpdvLLo8u2GdoX5ukn5bsdqHKzUP-Kic-ogElOB6mioIUySUemTHR4Q5gxuraYyF7ffjfT23GWHj2teutd0a7okZPM8dFjLls2m3hIbGtBOqXcSxISVATf--frGFFJuZUENxe82hbeDpY23k780oT80lvYKyg5M8L_n0DqoDowVp5NbJ8ztyGUR2OQnZk90MZDe19k.ruNPUgnrN6Afm5_5jYs6OQ/__results___files/__results___7_0.png)
+## 📂 Train-infer-model folder
+
+All `.ipynb` files which used to train and test model are stored in `./train-infer-model/` folder.
+
+```
+.
+├── train-infer-model
+│   ├── cellpose
+│   ├── data
+│   ├── mask_rcnn
+│   └── performance
+```
 
 # Demo
 
