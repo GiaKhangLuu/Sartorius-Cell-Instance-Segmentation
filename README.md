@@ -6,7 +6,7 @@ The dataset is downloaded from: https://www.kaggle.com/competitions/sartorius-ce
 
 **Sample image in this dataset**:
 
-![Microscopy image sample in dataset](https://storage.googleapis.com/kagglesdsdata/competitions/30201/2750748/train/0030fd0e6378.png?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20220711%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20220711T081747Z&X-Goog-Expires=345599&X-Goog-SignedHeaders=host&X-Goog-Signature=6bed3ab9073f9a3c42c1749bc9f80aa10c8b431becf5a2e18a937508f27d0c3146973ba61f90e60be18ee8f658dc82fb8460833a5f12b81b5a9275a2428418e54d7df3bee51877365d59b76560d68c5feec359047c6a1a911e832c6f8c0021e3fc891c0602f613411f5fb623510f2c9bdfbe148c2d1b9273c2425e28b1f0f4265e4442a77b9ca88becb8be7b76d917ec624ac2d27d758c807da2cf5f8344b321bf914857db2c9d471d1ed9ef7fe9240480366226c4b2bad925885e1fbcf6f6194f9107f19123b9bb56064fb8f3d1f8d4a23e9049a1d1df318ae2f0ec8558a02581f16b358228eed40e2fe94f7f2e91ebbc1bbf849f62b6fb050cfa7a546d6486)
+![Microscopy image sample in dataset](./asset/sample_img.png)
 
 # Methods
 
