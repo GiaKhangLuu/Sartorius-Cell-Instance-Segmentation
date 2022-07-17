@@ -88,7 +88,15 @@ All `.ipynb` files which used to train and test model are stored in `./train-inf
 
 Using `streamlit` framework to demo on website
 
-...
+**Detecting by Mask RCNN**
+![Detecting by Mask RCNN](./asset/seg_by_mrcnn.png)
+
+**Detecting by Cellpose**
+![Detecting by Cellpose](./asset/seg_by_cellpose.png)
+
+**Comparing Mask RCNN and Cellpose
+![Comparing Mask RCNN and Cellpose](./asset/mrcnn_and_cp.png)
+>>>>>>> d799693 (update RM)
 
 # Reference
 
