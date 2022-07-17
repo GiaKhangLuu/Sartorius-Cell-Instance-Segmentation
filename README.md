@@ -91,12 +91,15 @@ Using `streamlit` framework to demo on website
 **Detecting by Mask RCNN**
 ![Detecting by Mask RCNN](./asset/seg_by_mrcnn.png)
 
+Mask RCNN also detects the class label for each instance
+
 **Detecting by Cellpose**
 ![Detecting by Cellpose](./asset/seg_by_cellpose.png)
 
-**Comparing Mask RCNN and Cellpose
+Cellpose does not detect label for instance
+
+**Comparing Mask RCNN and Cellpose**
 ![Comparing Mask RCNN and Cellpose](./asset/mrcnn_and_cp.png)
->>>>>>> d799693 (update RM)
 
 # Reference
 
