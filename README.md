@@ -23,6 +23,14 @@ The dataset is downloaded from: https://www.kaggle.com/competitions/sartorius-ce
 **Loss:**
 1. L2 Regularization
 
+# Installation 
+
+Installing all packages in this repository.
+
+```
+pip install -r requirement.txt
+```
+
 # Repository structure
 
 ## 📂 Browser folder
@@ -45,16 +53,6 @@ Mask RCNN and Cellpose packages are stored in `./models/` folder.
 ├── models
 │   ├── Mask_RCNN
 │   ├── cellpose
-```
-
-## 📂 Requirement folder
-`./requirement/cellpose-requirement.txt` contains all packages used by Cellpose and 
-`./requirement/mrcnn-requirement.txt` contains all packages used by Mask RCNN.
-```
-.
-├── requirement
-│   ├── cellpose-requirement.txt
-│   └── mrcnn-requirement.txt
 ```
 
 ## 📂 Technique folder
@@ -108,5 +106,3 @@ Mask RCNN: https://github.com/leekunhee/Mask_RCNN
 Cellpose: https://github.com/MouseLand/cellpose
 
 Streamlit: https://streamlit.io/
-
-
